@@ -1,0 +1,64 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+    height: 350px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #8a2be2;
+}
+
+.logo-box {
+    width: 70px; height: 70px;
+    border: 2px solid #8a2be2;
+    background: black;
+    margin-bottom: 20px;
+}
+
+nav ul { display: flex; list-style: none; gap: 15px; }
+nav ul li a { color: white; text-decoration: none; font-weight: bold; padding: 8px 15px; }
+.btn-inicio { background: #8a2be2; border-radius: 5px; }
+
+.section-title {
+    color: #8a2be2;
+    margin: 40px 0 20px 20px;
+    border-left: 5px solid white;
+    padding-left: 15px;
+}
+
+.card {
+    width: 220px; height: 130px;
+    border: 3px solid #8a2be2;
+    margin-left: 20px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.card-art { height: 250px; width: 180px; }
+
+.social-hub {
+    background: #0a0a0a;
+    padding: 60px;
+    text-align: center;
+    border-top: 2px solid #8a2be2;
+}
+
+.social-btn {
+    color: #8a2be2;
+    border: 1px solid #8a2be2;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
