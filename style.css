@@ -2,7 +2,7 @@
 body { background-color: #000; color: white; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
 
 header {
-    height: 120px; /* Reducido un poco */
+    height: 120px;
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200');
     background-size: cover; background-position: center;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -10,26 +10,37 @@ header {
 }
 
 .logo-box { width: 35px; height: 35px; border: 2px solid #8a2be2; background: black; margin-bottom: 8px; }
-nav ul { display: flex; list-style: none; gap: 8px; }
-.nav-link { color: white; text-decoration: none; font-size: 0.9rem; font-weight: bold; padding: 8px 12px; border-radius: 5px; transition: 0.3s; }
+nav ul { display: flex; list-style: none; gap: 5px; } /* Espacio reducido entre botones */
+
+.nav-link { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 0.8rem; /* Fuente ajustada para 6 botones */
+    font-weight: bold; 
+    padding: 6px 8px; 
+    border-radius: 5px; 
+    transition: 0.3s; 
+    text-transform: uppercase;
+}
+
 .nav-link.active { background-color: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
 
 .bienvenida { font-size: 1.8rem; font-weight: bold; text-shadow: 0 0 10px #8a2be2; text-align: center; }
 
 /* AJUSTES DE ESPACIO EN SECCIONES */
-.page-section { min-height: auto; padding: 40px 20px; } /* Altura automática y menos padding */
+.page-section { min-height: auto; padding: 40px 20px; }
 .small-padding { padding: 30px 20px; }
 .no-padding-top { padding-top: 10px; }
 .section-title { color: #8a2be2; margin-bottom: 20px; border-left: 4px solid white; padding-left: 12px; font-size: 1.2rem; text-transform: uppercase; }
 
-/* CARRUSEL REVISADO */
+/* CARRUSEL DE VIDEOS */
 .video-carousel-container { width: 100%; overflow-x: auto; padding: 10px 0; }
 .video-carousel-container::-webkit-scrollbar { height: 6px; }
 .video-carousel-container::-webkit-scrollbar-thumb { background: #8a2be2; border-radius: 10px; }
 .video-chain { display: flex; gap: 15px; padding-bottom: 10px; }
 
 .video-card {
-    min-width: 280px; height: 200px; /* Más compactos */
+    min-width: 280px; height: 200px;
     background: #000; border: 2px solid #8a2be2;
     border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; transition: 0.3s;
 }
