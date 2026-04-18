@@ -10,19 +10,19 @@
     <header>
         <div class="logo-box"></div>
         <nav>
-            <ul>
-                <li><a href="#" class="btn-inicio">INICIO</a></li>
-                <li><a href="#">DIBUJOS</a></li>
-                <li><a href="#">PROYECTOS</a></li>
-                <li><a href="#">VIDEOS</a></li>
-                <li><a href="#">TIENDA</a></li>
+            <ul id="main-nav">
+                <li><a href="#inicio" class="nav-link active" onclick="seleccionar(this)">INICIO</a></li>
+                <li><a href="#dibujos" class="nav-link" onclick="seleccionar(this)">DIBUJOS</a></li>
+                <li><a href="#proyectos" class="nav-link" onclick="seleccionar(this)">PROYECTOS</a></li>
+                <li><a href="#videos" class="nav-link" onclick="seleccionar(this)">VIDEOS</a></li>
+                <li><a href="#tienda" class="nav-link" onclick="seleccionar(this)">TIENDA</a></li>
             </ul>
         </nav>
         <div class="bienvenida">¡BIENVENIDO A MI WEB!</div>
     </header>
 
-    <main class="main-content">
-        <h2 class="section-title">Videos Recientes</h2>
+    <main class="main-content" id="inicio">
+        <h2 id="videos" class="section-title">Videos Recientes</h2>
         <div class="carousel">
             <div class="grid">
                 <div class="card"></div>
@@ -30,13 +30,16 @@
             </div>
         </div>
 
-        <h2 class="section-title">Mi Galería de Arte</h2>
+        <h2 id="dibujos" class="section-title">Mi Galería de Arte</h2>
         <div class="carousel">
             <div class="grid">
                 <div class="card card-art"></div>
                 <div class="card card-art"></div>
             </div>
         </div>
+
+        <div id="proyectos"></div>
+        <div id="tienda"></div>
     </main>
 
     <section class="social-hub">
@@ -60,5 +63,14 @@
             </a>
         </div>
     </section>
+
+    <script>
+        function seleccionar(elemento) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            elemento.classList.add('active');
+        }
+    </script>
 </body>
 </html>
