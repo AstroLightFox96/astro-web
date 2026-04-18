@@ -12,9 +12,9 @@
         <nav>
             <ul id="main-nav">
                 <li><a href="#inicio" class="nav-link active" onclick="seleccionar(this)">INICIO</a></li>
+                <li><a href="#videos" class="nav-link" onclick="seleccionar(this)">VIDEOS</a></li>
                 <li><a href="#dibujos" class="nav-link" onclick="seleccionar(this)">DIBUJOS</a></li>
                 <li><a href="#proyectos" class="nav-link" onclick="seleccionar(this)">PROYECTOS</a></li>
-                <li><a href="#videos" class="nav-link" onclick="seleccionar(this)">VIDEOS</a></li>
                 <li><a href="#tienda" class="nav-link" onclick="seleccionar(this)">TIENDA</a></li>
             </ul>
         </nav>
@@ -28,9 +28,25 @@
 
         <section id="videos" class="page-section">
             <h2 class="section-title">Videos Recientes</h2>
-            <div class="grid">
-                <div class="card"></div>
-                <div class="card"></div>
+            <div class="video-carousel-container">
+                <div class="video-chain">
+                    <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="video-card" target="_blank">
+                        <div class="video-thumb"></div>
+                        <span>Título del Video</span>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="video-card" target="_blank">
+                        <div class="video-thumb"></div>
+                        <span>Título del Video</span>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="video-card" target="_blank">
+                        <div class="video-thumb"></div>
+                        <span>Título del Video</span>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="view-more-card" target="_blank">
+                        <div class="arrow-circle">➔</div>
+                        <span>Ver todos</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -44,7 +60,7 @@
 
         <section id="proyectos" class="page-section">
             <h2 class="section-title">Mis Proyectos</h2>
-            <div class="card" style="width: 80%; height: 100px; display: flex; align-items: center; justify-content: center;">
+            <div class="card-large">
                 <p>Próximamente: The Smiling Critters Book & Tapes Project</p>
             </div>
         </section>
@@ -79,11 +95,9 @@
 
     <script>
         function seleccionar(elemento) {
-            // Quita el morado de todos
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
-            // Pon el morado al que hiciste clic
             elemento.classList.add('active');
         }
     </script>
