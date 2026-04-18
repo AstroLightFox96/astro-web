@@ -18,28 +18,41 @@
                 <li><a href="#tienda" class="nav-link" onclick="seleccionar(this)">TIENDA</a></li>
             </ul>
         </nav>
-        <div class="bienvenida">¡BIENVENIDO A MI WEB!</div>
     </header>
 
-    <main class="main-content" id="inicio">
-        <h2 id="videos" class="section-title">Videos Recientes</h2>
-        <div class="carousel">
+    <main class="main-content">
+        <section id="inicio" class="page-section">
+            <div class="bienvenida">¡BIENVENIDO A MI WEB!</div>
+            <p style="text-align: center; margin-top: 20px; color: #bbb;">Explora mis creaciones, videos y proyectos de Galax Critters.</p>
+        </section>
+
+        <section id="videos" class="page-section">
+            <h2 class="section-title">Videos Recientes</h2>
             <div class="grid">
                 <div class="card"></div>
                 <div class="card"></div>
             </div>
-        </div>
+        </section>
 
-        <h2 id="dibujos" class="section-title">Mi Galería de Arte</h2>
-        <div class="carousel">
+        <section id="dibujos" class="page-section">
+            <h2 class="section-title">Mi Galería de Arte</h2>
             <div class="grid">
                 <div class="card card-art"></div>
                 <div class="card card-art"></div>
             </div>
-        </div>
+        </section>
 
-        <div id="proyectos"></div>
-        <div id="tienda"></div>
+        <section id="proyectos" class="page-section">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <div class="card" style="width: 80%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                <p>Próximamente: The Smiling Critters Book & Tapes Project</p>
+            </div>
+        </section>
+
+        <section id="tienda" class="page-section">
+            <h2 class="section-title">Tienda Roblox</h2>
+            <p style="margin-left: 20px;">¡Visita mi grupo de Roblox para ver mis accesorios exclusivos!</p>
+        </section>
     </main>
 
     <section class="social-hub">
@@ -66,9 +79,11 @@
 
     <script>
         function seleccionar(elemento) {
+            // Quita el morado de todos
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
+            // Pon el morado al que hiciste clic
             elemento.classList.add('active');
         }
     </script>
