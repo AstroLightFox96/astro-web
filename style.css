@@ -34,15 +34,16 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 .view-more-card { min-width: 140px; height: 200px; background: rgba(138, 43, 226, 0.1); border: 2px dashed #8a2be2; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; gap: 10px; }
 .arrow-circle { width: 45px; height: 45px; border-radius: 50%; background: #8a2be2; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
 
-/* GALERÍA X */
-.twitter-gallery-wrapper { 
-    max-width: 600px; 
-    min-height: 600px; 
+/* GALERÍA / POST INDIVIDUAL X */
+.twitter-post-wrapper { 
+    max-width: 550px; 
     margin: 0 auto; 
     border: 2px solid #8a2be2; 
     border-radius: 15px; 
     padding: 10px; 
-    background: rgba(138, 43, 226, 0.05); 
+    background: rgba(138, 43, 226, 0.05);
+    display: flex;
+    justify-content: center;
 }
 
 /* TERMINAL PROYECTOS */
