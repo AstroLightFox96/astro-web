@@ -2,31 +2,33 @@
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 body { background-color: #000; color: white; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
 
-/* HEADER REFORMADO PARA MÁXIMO ESPACIO */
+/* HEADER REFORMADO CON FUERZA BRUTA */
 header {
-    height: 250px; 
+    min-height: 300px; /* Asegura un espacio amplio para el logo gigante */
+    padding: 20px 0;
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200');
     background-size: cover; 
     background-position: center;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    justify-content: center;
+    justify-content: space-around; 
     border-bottom: 3px solid #8a2be2; 
     position: relative; 
     z-index: 1000;
-    gap: 20px; 
 }
 
 .logo-box { 
-    height: 140px; 
+    width: 100%;
+    height: 180px; /* Espacio dedicado exclusivamente a la estrella */
     display: flex; 
     align-items: center; 
-    justify-content: center; 
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .main-logo {
-    height: 100%;
+    height: 180px; /* Forzamos la altura de la estrella */
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.9));
@@ -40,8 +42,8 @@ nav ul { display: flex; list-style: none; gap: 10px; }
 .nav-link.active { background-color: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
 .nav-link:hover:not(.active) { background: rgba(138, 43, 226, 0.3); }
 
-/* SECCIONES - MARGIN TOP PARA EMPUJAR CONTENIDO */
-.main-content { margin-top: 40px; }
+/* SECCIONES - EMPUJAR CONTENIDO HACIA ABAJO */
+.main-content { margin-top: 50px; }
 .page-section { min-height: auto; padding: 40px 20px; }
 .small-padding { padding: 30px 20px; }
 .no-padding-top { padding-top: 10px; }
