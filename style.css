@@ -10,7 +10,23 @@ header {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     border-bottom: 3px solid #8a2be2; position: sticky; top: 0; z-index: 1000;
 }
-.logo-box { width: 35px; height: 35px; border: 2px solid #8a2be2; background: black; margin-bottom: 8px; }
+
+/* Modificado para que quepa la imagen grande */
+.logo-box { 
+    width: auto; 
+    height: 60px; /* Ajustado para que no choque con el menú */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px; 
+}
+
+.main-logo {
+    height: 100%;
+    width: auto;
+    filter: drop-shadow(0 0 10px #8a2be2); /* Brillo neón */
+}
+
 nav ul { display: flex; list-style: none; gap: 5px; }
 .nav-link { color: white; text-decoration: none; font-size: 0.8rem; font-weight: bold; padding: 6px 8px; border-radius: 5px; transition: 0.3s; text-transform: uppercase; }
 .nav-link.active { background-color: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
