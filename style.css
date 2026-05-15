@@ -2,9 +2,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
 body { 
-    /* Aplicamos tu imagen de nebulosa con un degradado oscuro para que el texto resalte */
+    /* Se aplicó tu URL directa de GitHub aquí */
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('TU_URL_DE_LA_IMAGEN_AQUÍ?raw=true');
+                url('https://github.com/AstroLightFox96/astro-web/blob/main/Imagen%20de%20fondo.png?raw=true');
     background-attachment: fixed; /* El fondo se queda quieto mientras haces scroll */
     background-size: cover;
     background-position: center;
@@ -111,3 +111,16 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 .social-card span { color: #bbb; font-size: 0.8rem; font-weight: bold; }
 
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* --- NUEVA CAPA DE FONDO (SIN MODIFICAR LO ANTERIOR) --- */
+#fondo-espacial {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+    opacity: 0.5; 
+    pointer-events: none;
+}
