@@ -3,7 +3,7 @@
 
 body { 
     /* Se aplicó tu URL directa de GitHub aquí */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                 url('https://github.com/AstroLightFox96/astro-web/blob/main/Imagen%20de%20fondo.png?raw=true');
     background-attachment: fixed; /* El fondo se queda quieto mientras haces scroll */
     background-size: cover;
@@ -121,6 +121,6 @@ nav ul { display: flex; list-style: none; gap: 5px; }
     height: 100%;
     object-fit: cover;
     z-index: -1; 
-    opacity: 0.5; 
+    opacity: 0.8; 
     pointer-events: none;
 }
