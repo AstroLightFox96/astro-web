@@ -2,28 +2,46 @@
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 body { background-color: #000; color: white; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
 
-/* HEADER */
+/* HEADER ACTUALIZADO */
 header {
-    height: 120px;
+    height: 140px; /* Un poco más alto para que quepa bien el logo y el nav */
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200');
     background-size: cover; background-position: center;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     border-bottom: 3px solid #8a2be2; position: sticky; top: 0; z-index: 1000;
 }
-.logo-box { width: 35px; height: 35px; border: 2px solid #8a2be2; background: black; margin-bottom: 8px; }
+
+.logo-box { 
+    height: 65px; 
+    margin-bottom: 10px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.main-logo {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.8));
+    transition: 0.3s ease;
+}
+
+.main-logo:hover { transform: scale(1.1); }
+
 nav ul { display: flex; list-style: none; gap: 5px; }
 .nav-link { color: white; text-decoration: none; font-size: 0.8rem; font-weight: bold; padding: 6px 8px; border-radius: 5px; transition: 0.3s; text-transform: uppercase; }
 .nav-link.active { background-color: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
 .nav-link:hover:not(.active) { background: rgba(138, 43, 226, 0.3); }
 
-/* SECCIONES */
+/* SECCIONES Y RESTO DE ESTILOS */
 .page-section { min-height: auto; padding: 40px 20px; }
 .small-padding { padding: 30px 20px; }
 .no-padding-top { padding-top: 10px; }
 .bienvenida { font-size: 1.8rem; font-weight: bold; text-shadow: 0 0 10px #8a2be2; text-align: center; }
 .section-title { color: #8a2be2; margin-bottom: 20px; border-left: 4px solid white; padding-left: 12px; font-size: 1.2rem; text-transform: uppercase; }
 
-/* CARRUSEL VIDEOS */
+/* VIDEOS */
 .video-carousel-container { width: 100%; overflow-x: auto; padding: 10px 0; }
 .video-carousel-container::-webkit-scrollbar { height: 6px; }
 .video-carousel-container::-webkit-scrollbar-thumb { background: #8a2be2; border-radius: 10px; }
@@ -34,19 +52,10 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 .view-more-card { min-width: 140px; height: 200px; background: rgba(138, 43, 226, 0.1); border: 2px dashed #8a2be2; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; gap: 10px; }
 .arrow-circle { width: 45px; height: 45px; border-radius: 50%; background: #8a2be2; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
 
-/* GALERÍA / POST INDIVIDUAL X */
-.twitter-post-wrapper { 
-    max-width: 550px; 
-    margin: 0 auto; 
-    border: 2px solid #8a2be2; 
-    border-radius: 15px; 
-    padding: 10px; 
-    background: rgba(138, 43, 226, 0.05);
-    display: flex;
-    justify-content: center;
-}
+/* GALERIA X */
+.twitter-post-wrapper { max-width: 550px; margin: 0 auto; border: 2px solid #8a2be2; border-radius: 15px; padding: 10px; background: rgba(138, 43, 226, 0.05); display: flex; justify-content: center; }
 
-/* TERMINAL PROYECTOS */
+/* TERMINAL */
 .project-terminal { background: #0a0a0a; border: 1px solid #8a2be2; border-radius: 10px; overflow: hidden; font-family: 'Consolas', monospace; }
 .terminal-header { background: #1a1a1a; padding: 8px 15px; display: flex; align-items: center; gap: 8px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -56,7 +65,7 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 .status-line { font-size: 0.7rem; margin-bottom: 15px; animation: blink 1.5s infinite; }
 .project-msg { margin-bottom: 8px; font-size: 0.9rem; color: #eee; }
 
-/* ROBLOX Y OTROS */
+/* ROBLOX */
 .roblox-info { padding: 0 10px; display: flex; flex-direction: column; gap: 15px; }
 .roblox-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background-color: #111; color: white; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 10px; border: 2px solid #8a2be2; max-width: 320px; transition: 0.3s; font-size: 0.9rem; }
 .roblox-btn:hover { background-color: #8a2be2; box-shadow: 0 0 20px #8a2be2; transform: translateY(-3px); }
