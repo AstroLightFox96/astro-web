@@ -3,127 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astro Light Fox | Oficial</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Astro Light Fox - Sitio Oficial</title>
+    <style>
+        /* --- VARIABLES Y CONFIGURACIÓN GENERAL --- */
+        :root {
+            --bg-principal: #0b0c10;
+            --bg-tarjetas: #141722;
+            --color-neon: #00e5ff;
+            --color-texto: #ffffff;
+            --color-muted: #a0a5b5;
+            --color-roblox: #0084ff;
+            --color-kofi: #ff5e5b;
+            --color-tienda: #ff5722;
+            --fuente-base: 'Arial', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-base);
+            background-color: var(--bg-principal);
+            color: var(--color-texto);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contenedor {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- ENCABEZADO / HEADER --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-marca {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-texto);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-marca {
+            color: var(--color-muted);
+            font-size: 1rem;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--color-muted);
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-neon);
+        }
+
+        /* --- SECCIÓN PRINCIPAL: HUB DE ENLACES --- */
+        .seccion-hub {
+            background-color: var(--bg-tarjetas);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .seccion-hub h2 {
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
+
+        .grid-botones {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Estilo base para todos los botones de enlaces */
+        .boton-enlace {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .boton-enlace:hover {
+            transform: scale(1.02);
+        }
+
+        .boton-enlace svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        /* Botón de Roblox */
+        .boton-enlace.roblox {
+            background-color: var(--color-roblox);
+            color: #ffffff;
+        }
+        .boton-enlace.roblox:hover {
+            background-color: #0070d6;
+            box-shadow: 0 0 15px rgba(0, 132, 255, 0.4);
+        }
+
+        /* Botón de Ko-fi (Apóyame) */
+        .boton-enlace.kofi-donaciones {
+            background-color: var(--color-kofi);
+            color: #ffffff;
+        }
+        .boton-enlace.kofi-donaciones:hover {
+            background-color: #e04b48;
+            box-shadow: 0 0 15px rgba(255, 94, 91, 0.4);
+        }
+
+        /* Botón de la Tienda Oficial (Oculto temporalmente) */
+        .boton-enlace.tienda-oficial {
+            background-color: var(--color-tienda);
+            color: #ffffff;
+        }
+        .boton-enlace.tienda-oficial:hover {
+            background-color: #e04e1d;
+            box-shadow: 0 0 15px rgba(255, 87, 34, 0.4);
+        }
+
+        /* --- CAROUSEL DE YOUTUBE --- */
+        .seccion-videos {
+            margin-bottom: 40px;
+        }
+
+        .seccion-videos h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contenedor-carrusel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scroll-behavior: smooth;
+        }
+
+        .contenedor-carrusel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .contenedor-carrusel::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .tarjeta-video {
+            min-width: 280px;
+            background-color: var(--bg-tarjetas);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .miniatura-video {
+            width: 100%;
+            height: 160px;
+            background-color: #202330;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-muted);
+        }
+
+        .info-video {
+            padding: 15px;
+        }
+
+        .info-video p {
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        /* --- TERMINAL INTERACTIVA --- */
+        .seccion-terminal {
+            margin-bottom: 40px;
+        }
+
+        .terminal-box {
+            background-color: #050508;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .terminal-header {
+            color: var(--color-neon);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .terminal-body {
+            color: #39ff14; /* Verde clásico de terminal */
+        }
+
+        /* --- GALERÍA / FEEDS (X - TWITTER) --- */
+        .grid-contenido {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-contenido {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .feed-social {
+            background-color: var(--bg-tarjetas);
+            border-radius: 16px;
+            padding: 25px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo-box">
-            <img src="https://github.com/AstroLightFox96/astro-web/blob/main/Astter_Logo.png?raw=true" alt="Logo Astro" class="main-logo">
-        </div>
+
+    <div class="contenedor">
+        
+        <header>
+            <div class="logo-marca">Astro Light Fox</div>
+            <div class="subtitulo-marca">Desarrollador, Animador & Creador de Contenido</div>
+        </header>
+
         <nav>
-            <ul id="main-nav">
-                <li><a href="#inicio" class="nav-link active" onclick="seleccionar(this)">INICIO</a></li>
-                <li><a href="#videos" class="nav-link" onclick="seleccionar(this)">VIDEOS</a></li>
-                <li><a href="#dibujos" class="nav-link" onclick="seleccionar(this)">DIBUJOS</a></li>
-                <li><a href="#proyectos" class="nav-link" onclick="seleccionar(this)">PROYECTOS</a></li>
-                <li><a href="#roblox" class="nav-link" onclick="seleccionar(this)">ROBLOX</a></li>
-                <li><a href="#tienda" class="nav-link" onclick="seleccionar(this)">TIENDA</a></li>
-            </ul>
+            <a href="#inicio">Inicio</a>
+            <a href="#enlaces">Comunidad</a>
+            <a href="#videos">Videos</a>
+            <a href="#proyectos">Terminal</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
         </nav>
-    </header>
 
-    <main class="main-content">
-        <section id="inicio" class="page-section small-padding">
-            <div class="bienvenida">¡BIENVENIDO A MI WEB!</div>
-            <p style="text-align: center; margin-top: 10px; color: #bbb;">Explora mis creaciones, videos y proyectos de Galax Critters.</p>
-        </section>
-
-        <section id="videos" class="page-section no-padding-top">
-            <h2 class="section-title">Videos Recientes</h2>
-            <div class="video-carousel-container">
-                <div class="video-chain">
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/kHP9vdMa38M" frameborder="0" allowfullscreen></iframe><span>Video 1</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/t6rZFhLaR2Y" frameborder="0" allowfullscreen></iframe><span>Video 2</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/d0n7oPcOVCs" frameborder="0" allowfullscreen></iframe><span>Video 3</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/xbnxv0qrnbE" frameborder="0" allowfullscreen></iframe><span>Video 4</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/aBMpIFWvchs" frameborder="0" allowfullscreen></iframe><span>Video 5</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/8vRPXZL6gPk" frameborder="0" allowfullscreen></iframe><span>Video 6</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/9kuDotLNELE" frameborder="0" allowfullscreen></iframe><span>Video 7</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/hTZEAJXaCZI" frameborder="0" allowfullscreen></iframe><span>Video 8</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/b9Qa3RFu7Bc" frameborder="0" allowfullscreen></iframe><span>Video 9</span></div>
-                    
-                    <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="view-more-card" target="_blank">
-                        <div class="arrow-circle">➔</div>
-                        <span>Suscríbete</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="dibujos" class="page-section no-padding-top">
-            <h2 class="section-title">Mi Galería de Arte</h2>
-            <div class="twitter-post-wrapper">
-                <blockquote class="twitter-tweet" data-theme="dark">
-                    <p lang="es" dir="ltr">Astter x Rolian (&quot;Recuerdos&quot; Primera Parte). <br><br>Si les gusta mucho esté Shipeo nos podrían apoyar a <a href="https://twitter.com/Rolingod?ref_src=twsrc%5Etfw">@Rolingod</a> y a mí siguiendo en Tiktok <br><br>Además:<br>-Comparte el vídeo para que se haga popular :3<br>-Dale corazón a esta publicación para poder continuar y que esté Shipeo continúe ^-^ <a href="https://t.co/JvXva7Zeuw">pic.twitter.com/JvXva7Zeuw</a></p>&mdash; ✨Astro Light Fox✨(~ASTTER~) (@Astrolightfox) <a href="https://twitter.com/Astrolightfox/status/2033309173304131772?ref_src=twsrc%5Etfw">March 15, 2026</a>
-                </blockquote> 
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </section>
-
-        <section id="proyectos" class="page-section no-padding-top">
-            <h2 class="section-title">Mis Proyectos</h2>
-            <div class="project-terminal">
-                <div class="terminal-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="terminal-title">Astro_OS / Terminal de Avisos</span>
-                </div>
-                <div class="terminal-body">
-                    <p class="status-line">● SISTEMA ACTIVO - ESPERANDO COMANDOS</p>
-                    <p class="project-msg">> Próximo: The Smiling Critters Book (Animación en progreso)</p>
-                    <p class="project-msg">> A.L.F. & Friends: The Tapes Project (Planeación de guion)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="roblox" class="page-section no-padding-top">
-            <h2 class="section-title">Comunidad Roblox</h2>
-            <div class="roblox-info">
-                <p>Únete a mi grupo oficial para conseguir ropa exclusiva y accesorios para tu avatar.</p>
-                <a href="https://www.roblox.com/es/communities/436044994/A-L-F-Esp-Comunidad-Oficial-del-Canal#!/about" class="roblox-btn" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="Roblox" class="white-icon">
-                    ¡ÚNETE AL GRUPO AQUÍ!
+        <section id="enlaces" class="seccion-hub">
+            <h2>CENTRO SOCIAL & COMUNIDAD</h2>
+            <div class="grid-botones">
+                
+                <a href="https://www.roblox.com/" class="boton-enlace roblox" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.326 17.175L5.702 13.562l3.613-12.624L21.94 4.551zM1.775 6.912l3.612-12.624 12.624 3.613L14.4 10.525z"/>
+                    </svg>
+                    Comunidad de Roblox
                 </a>
-            </div>
+
+                <a href="https://ko-fi.com/astter_fox96" class="boton-enlace kofi-donaciones" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    Apóyame en Ko-fi
+                </a>
+
+                </div>
         </section>
 
-        <section id="tienda" class="page-section no-padding-top">
-            <h2 class="section-title">Tienda Oficial</h2>
-            <div class="card-large" style="border-style: dashed;">
-                <p>Próximamente: Productos físicos, peluches y más.</p>
-            </div>
-        </section>
-    </main>
+        <div class="grid-contenido">
+            
+            <div class="bloque-izquierdo">
+                <section id="videos" class="seccion-videos">
+                    <h2>Últimos Videos en YouTube</h2>
+                    <div class="contenedor-carrusel">
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #1</div><div class="info-video"><p>Título del Video 1</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #2</div><div class="info-video"><p>Título del Video 2</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #3</div><div class="info-video"><p>Título del Video 3</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #4</div><div class="info-video"><p>Título del Video 4</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #5</div><div class="info-video"><p>Título del Video 5</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #6</div><div class="info-video"><p>Título del Video 6</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #7</div><div class="info-video"><p>Título del Video 7</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #8</div><div class="info-video"><p>Título del Video 8</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #9</div><div class="info-video"><p>Título del Video 9</p></div></div>
+                        <div class="tarjeta-video"><div class="miniatura-video">Video #10</div><div class="info-video"><p>Título del Video 10</p></div></div>
+                    </div>
+                </section>
 
-    <section class="social-hub">
-        <h2 class="hub-title">> SOCIAL HUB</h2>
-        <div class="social-container">
-            <a href="https://www.tiktok.com/@astrolightfox_1096" class="social-card tiktok" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
-                <span>TikTok</span>
-            </a>
-            <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="social-card youtube" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-                <span>YouTube</span>
-            </a>
-            <a href="https://www.roblox.com/es/users/3736260611/profile" class="social-card roblox" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="Roblox" class="white-icon">
-                <span>Roblox</span>
-            </a>
-            <a href="https://x.com/Astrolightfox" class="social-card x-twitter" target="_blank">
-                <img src="https://abs.twimg.com/favicons/twitter-pip.3.ico" alt="X" class="white-icon">
-                <span>X / Twitter</span>
-            </a>
+                <section id="proyectos" class="seccion-terminal">
+                    <h2>Estado del Sistema</h2>
+                    <div class="terminal-box">
+                        <div class="terminal-header">astro-light-fox@system:~$_</div>
+                        <div class="terminal-body">
+                            > Cargando módulos de la comunidad... OK<br>
+                            > Inicializando botón Ko-fi [https://ko-fi.com/astter_fox96]... OK<br>
+                            > Módulo de Tienda Oficial... SUSPENDIDO [Esperando mercancía física]<br>
+                            > Astro-Web ejecutándose de manera óptima.
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="bloque-derecho">
+                <section id="galeria" class="feed-social">
+                    <h2>Timeline X</h2>
+                    <div style="color: var(--color-muted); font-size: 0.9rem; text-align: center; padding: 40px 0;">
+                        [Aquí se cargará tu feed de X / Twitter de manera automática al enlazar el script oficial]
+                    </div>
+                </section>
+            </div>
+
         </div>
-    </section>
 
-    <script>
-        function seleccionar(elemento) {
-            document.querySelectorAll('.nav-link').forEach(link => { link.classList.remove('active'); });
-            elemento.classList.add('active');
-        }
-    </script>
+    </div>
+
 </body>
 </html>
