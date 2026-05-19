@@ -124,3 +124,50 @@ nav ul { display: flex; list-style: none; gap: 5px; }
     opacity: 0.8; 
     pointer-events: none;
 }
+
+/* SECCION DE DONACIONES ADICIONADA */
+.donaciones-container {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.donaciones-text {
+    color: #bbb;
+    font-size: 0.95rem;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.donar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #111;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: 2px solid #8a2be2;
+    max-width: 320px;
+    width: 100%;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+.donar-btn:hover {
+    background-color: #8a2be2;
+    box-shadow: 0 0 20px #8a2be2;
+    transform: translateY(-3px);
+}
+
+.heart-icon {
+    font-size: 1.2rem;
+}
