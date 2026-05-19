@@ -2,16 +2,20 @@
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
 body { 
-    /* Se aplicó tu URL directa de GitHub aquí */
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                 url('https://github.com/AstroLightFox96/astro-web/blob/main/Imagen%20de%20fondo.png?raw=true');
-    background-attachment: fixed; /* El fondo se queda quieto mientras haces scroll */
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     background-color: #000; 
     color: white; 
     font-family: 'Segoe UI', sans-serif; 
     overflow-x: hidden; 
+    
+    /* Activa flexbox en toda la estructura del body */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* HEADER - AJUSTADO PARA LOGO MEDIANO */
@@ -103,8 +107,15 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 .white-icon { filter: invert(1); width: 20px; }
 .card-large { width: 100%; padding: 20px; border: 1px solid #333; text-align: center; border-radius: 8px; background: #050505; }
 
-/* SOCIAL HUB */
-.social-hub { background: #0a0a0a; padding: 40px 20px; text-align: center; border-top: 3px solid #8a2be2; margin-top: 30px; }
+/* SOCIAL HUB - ANCLADO FIJO AL FONDO */
+.social-hub { 
+    background: #0a0a0a; 
+    padding: 40px 20px; 
+    text-align: center; 
+    border-top: 3px solid #8a2be2; 
+    margin-top: auto; /* Empuja el hub de manera automática hasta abajo */
+    width: 100%;
+}
 .social-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
 .social-card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 15px; width: 110px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.4s; }
 .social-card img { width: 35px; height: 35px; }
@@ -112,7 +123,7 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-/* --- NUEVA CAPA DE FONDO (SIN MODIFICAR LO ANTERIOR) --- */
+/* --- NUEVA CAPA DE FONDO --- */
 #fondo-espacial {
     position: fixed;
     top: 0;
@@ -125,9 +136,7 @@ nav ul { display: flex; list-style: none; gap: 5px; }
     pointer-events: none;
 }
 
-/* ==========================================================
-   NUEVOS ESTILOS PARA LA SECCIÓN DE DONACIONES 
-   ========================================================== */
+/* SECCION DE DONACIONES */
 .donaciones-container {
     padding: 20px 10px;
     display: flex;
@@ -172,4 +181,28 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 
 .heart-icon {
     font-size: 1.2rem;
+}
+
+/* ==========================================================
+   SISTEMA DE OCULTAR/MOSTRAR SECCIONES CON PIE DE PÁGINA FIJO
+   ========================================================== */
+.main-content-wrapper {
+    flex: 1; /* Esto obliga a este bloque central a llenar el espacio sobrante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente cuando es corto */
+}
+
+.section-content {
+    display: none; 
+    animation: fadeIn 0.4s ease-in-out; 
+}
+
+.section-content.active-section {
+    display: block; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
