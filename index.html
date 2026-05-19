@@ -13,100 +13,102 @@
         </div>
         <nav>
             <ul id="main-nav">
-                <li><a href="#inicio" class="nav-link active" onclick="seleccionar(this)">INICIO</a></li>
-                <li><a href="#videos" class="nav-link" onclick="seleccionar(this)">VIDEOS</a></li>
-                <li><a href="#dibujos" class="nav-link" onclick="seleccionar(this)">DIBUJOS</a></li>
-                <li><a href="#proyectos" class="nav-link" onclick="seleccionar(this)">PROYECTOS</a></li>
-                <li><a href="#roblox" class="nav-link" onclick="seleccionar(this)">ROBLOX</a></li>
-                <li><a href="#donaciones" class="nav-link" onclick="seleccionar(this)">DONACIONES</a></li>
-                <li><a href="#tienda" class="nav-link" onclick="seleccionar(this)">TIENDA</a></li>
+                <li><a href="#inicio" class="nav-link active" onclick="navegar(event, 'inicio')">INICIO</a></li>
+                <li><a href="#videos" class="nav-link" onclick="navegar(event, 'videos')">VIDEOS</a></li>
+                <li><a href="#dibujos" class="nav-link" onclick="navegar(event, 'dibujos')">DIBUJOS</a></li>
+                <li><a href="#proyectos" class="nav-link" onclick="navegar(event, 'proyectos')">PROYECTOS</a></li>
+                <li><a href="#roblox" class="nav-link" onclick="navegar(event, 'roblox')">ROBLOX</a></li>
+                <li><a href="#donaciones" class="nav-link" onclick="navegar(event, 'donaciones')">DONACIONES</a></li>
+                <li><a href="#tienda" class="nav-link" onclick="navegar(event, 'tienda')">TIENDA</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="main-content">
-        <section id="inicio" class="page-section small-padding">
-            <div class="bienvenida">¡BIENVENIDO A MI WEB!</div>
-            <p style="text-align: center; margin-top: 10px; color: #bbb;">Explora mis creaciones, videos y proyectos de Galax Critters.</p>
-        </section>
+    <div class="main-content-wrapper">
+        <main class="main-content">
+            <section id="inicio" class="page-section small-padding section-content active-section">
+                <div class="bienvenida">¡BIENVENIDO A MI WEB!</div>
+                <p style="text-align: center; margin-top: 10px; color: #bbb;">Explora mis creaciones, videos y proyectos de Galax Critters.</p>
+            </section>
 
-        <section id="videos" class="page-section no-padding-top">
-            <h2 class="section-title">Videos Recientes</h2>
-            <div class="video-carousel-container">
-                <div class="video-chain">
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/kHP9vdMa38M" frameborder="0" allowfullscreen></iframe><span>Video 1</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/t6rZFhLaR2Y" frameborder="0" allowfullscreen></iframe><span>Video 2</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/d0n7oPcOVCs" frameborder="0" allowfullscreen></iframe><span>Video 3</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/xbnxv0qrnbE" frameborder="0" allowfullscreen></iframe><span>Video 4</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/aBMpIFWvchs" frameborder="0" allowfullscreen></iframe><span>Video 5</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/8vRPXZL6gPk" frameborder="0" allowfullscreen></iframe><span>Video 6</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/9kuDotLNELE" frameborder="0" allowfullscreen></iframe><span>Video 7</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/hTZEAJXaCZI" frameborder="0" allowfullscreen></iframe><span>Video 8</span></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/b9Qa3RFu7Bc" frameborder="0" allowfullscreen></iframe><span>Video 9</span></div>
-                    
-                    <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="view-more-card" target="_blank">
-                        <div class="arrow-circle">➔</div>
-                        <span>Suscríbete</span>
+            <section id="videos" class="page-section no-padding-top section-content">
+                <h2 class="section-title">Videos Recientes</h2>
+                <div class="video-carousel-container">
+                    <div class="video-chain">
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/kHP9vdMa38M" frameborder="0" allowfullscreen></iframe><span>Video 1</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/t6rZFhLaR2Y" frameborder="0" allowfullscreen></iframe><span>Video 2</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/d0n7oPcOVCs" frameborder="0" allowfullscreen></iframe><span>Video 3</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/xbnxv0qrnbE" frameborder="0" allowfullscreen></iframe><span>Video 4</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/aBMpIFWvchs" frameborder="0" allowfullscreen></iframe><span>Video 5</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/8vRPXZL6gPk" frameborder="0" allowfullscreen></iframe><span>Video 6</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/9kuDotLNELE" frameborder="0" allowfullscreen></iframe><span>Video 7</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/hTZEAJXaCZI" frameborder="0" allowfullscreen></iframe><span>Video 8</span></div>
+                        <div class="video-card"><iframe src="https://www.youtube.com/embed/b9Qa3RFu7Bc" frameborder="0" allowfullscreen></iframe><span>Video 9</span></div>
+                        
+                        <a href="https://www.youtube.com/channel/UCfxSFei5CovKei8H2C9uctw" class="view-more-card" target="_blank">
+                            <div class="arrow-circle">➔</div>
+                            <span>Suscríbete</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dibujos" class="page-section no-padding-top section-content">
+                <h2 class="section-title">Mi Galería de Arte</h2>
+                <div class="twitter-post-wrapper">
+                    <blockquote class="twitter-tweet" data-theme="dark">
+                        <p lang="es" dir="ltr">Astter x Rolian (&quot;Recuerdos&quot; Primera Parte). <br><br>Si les gusta mucho esté Shipeo nos podrían apoyar a <a href="https://twitter.com/Rolingod?ref_src=twsrc%5Etfw">@Rolingod</a> y a mí siguiendo en Tiktok <br><br>Además:<br>-Comparte el vídeo para que se haga popular :3<br>-Dale corazón a esta publicación para poder continuar y que esté Shipeo continúe ^-^ <a href="https://t.co/JvXva7Zeuw">pic.twitter.com/JvXva7Zeuw</a></p>&mdash; ✨Astro Light Fox✨(~ASTTER~) (@Astrolightfox) <a href="https://twitter.com/Astrolightfox/status/2033309173304131772?ref_src=twsrc%5Etfw">March 15, 2026</a>
+                    </blockquote> 
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </section>
+
+            <section id="proyectos" class="page-section no-padding-top section-content">
+                <h2 class="section-title">Mis Proyectos</h2>
+                <div class="project-terminal">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">Astro_OS / Terminal de Avisos</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="status-line">● SISTEMA ACTIVO - ESPERANDO COMANDOS</p>
+                        <p class="project-msg">> Próximo: The Smiling Critters Book (Animación en progreso)</p>
+                        <p class="project-msg">> A.L.F. & Friends: The Tapes Project (Planeación de guion)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="roblox" class="page-section no-padding-top section-content">
+                <h2 class="section-title">Comunidad Roblox</h2>
+                <div class="roblox-info">
+                    <p>Únete a mi grupo oficial para conseguir ropa exclusiva y accesorios para tu avatar.</p>
+                    <a href="https://www.roblox.com/es/communities/436044994/A-L-F-Esp-Comunidad-Oficial-del-Canal#!/about" class="roblox-btn" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="Roblox" class="white-icon">
+                        ¡ÚNETE AL GRUPO AQUÍ!
                     </a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="dibujos" class="page-section no-padding-top">
-            <h2 class="section-title">Mi Galería de Arte</h2>
-            <div class="twitter-post-wrapper">
-                <blockquote class="twitter-tweet" data-theme="dark">
-                    <p lang="es" dir="ltr">Astter x Rolian (&quot;Recuerdos&quot; Primera Parte). <br><br>Si les gusta mucho esté Shipeo nos podrían apoyar a <a href="https://twitter.com/Rolingod?ref_src=twsrc%5Etfw">@Rolingod</a> y a mí siguiendo en Tiktok <br><br>Además:<br>-Comparte el vídeo para que se haga popular :3<br>-Dale corazón a esta publicación para poder continuar y que esté Shipeo continúe ^-^ <a href="https://t.co/JvXva7Zeuw">pic.twitter.com/JvXva7Zeuw</a></p>&mdash; ✨Astro Light Fox✨(~ASTTER~) (@Astrolightfox) <a href="https://twitter.com/Astrolightfox/status/2033309173304131772?ref_src=twsrc%5Etfw">March 15, 2026</a>
-                </blockquote> 
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </section>
-
-        <section id="proyectos" class="page-section no-padding-top">
-            <h2 class="section-title">Mis Proyectos</h2>
-            <div class="project-terminal">
-                <div class="terminal-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="terminal-title">Astro_OS / Terminal de Avisos</span>
+            <section id="donaciones" class="page-section no-padding-top section-content">
+                <h2 class="section-title">Apoya el Proyecto</h2>
+                <div class="donaciones-container">
+                    <p class="donaciones-text">Si te gusta mi contenido, mis animaciones y los proyectos de Galax Critters, puedes apoyarme voluntariamente para seguir trayendo más novedades.</p>
+                    <a href="https://ko-fi.com/astter_fox96#setGoalModal" class="donar-btn" target="_blank">
+                        <span class="heart-icon">☕</span> ¡INVÍTAME UN CAFÉ!
+                    </a>
                 </div>
-                <div class="terminal-body">
-                    <p class="status-line">● SISTEMA ACTIVO - ESPERANDO COMANDOS</p>
-                    <p class="project-msg">> Próximo: The Smiling Critters Book (Animación en progreso)</p>
-                    <p class="project-msg">> A.L.F. & Friends: The Tapes Project (Planeación de guion)</p>
+            </section>
+
+            <section id="tienda" class="page-section no-padding-top section-content">
+                <h2 class="section-title">Tienda Oficial</h2>
+                <div class="card-large" style="border-style: dashed;">
+                    <p>Próximamente: Productos físicos, peluches y más.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="roblox" class="page-section no-padding-top">
-            <h2 class="section-title">Comunidad Roblox</h2>
-            <div class="roblox-info">
-                <p>Únete a mi grupo oficial para conseguir ropa exclusiva y accesorios para tu avatar.</p>
-                <a href="https://www.roblox.com/es/communities/436044994/A-L-F-Esp-Comunidad-Oficial-del-Canal#!/about" class="roblox-btn" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="Roblox" class="white-icon">
-                    ¡ÚNETE AL GRUPO AQUÍ!
-                </a>
-            </div>
-        </section>
-
-        <section id="donaciones" class="page-section no-padding-top">
-            <h2 class="section-title">Apoya el Proyecto</h2>
-            <div class="donaciones-container">
-                <p class="donaciones-text">Si te gusta mi contenido, mis animaciones y los proyectos de Galax Critters, puedes apoyarme voluntariamente para seguir trayendo más novedades.</p>
-                <a href="https://ko-fi.com/astter_fox96#setGoalModal" class="donar-btn" target="_blank">
-                    <span class="heart-icon">☕</span> ¡INVÍTAME UN CAFÉ!
-                </a>
-            </div>
-        </section>
-
-        <section id="tienda" class="page-section no-padding-top">
-            <h2 class="section-title">Tienda Oficial</h2>
-            <div class="card-large" style="border-style: dashed;">
-                <p>Próximamente: Productos físicos, peluches y más.</p>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
     <section class="social-hub">
         <h2 class="hub-title">> SOCIAL HUB</h2>
@@ -131,9 +133,24 @@
     </section>
 
     <script>
-        function seleccionar(elemento) {
-            document.querySelectorAll('.nav-link').forEach(link => { link.classList.remove('active'); });
-            elemento.classList.add('active');
+        function navegar(event, idSeccion) {
+            event.preventDefault();
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            document.querySelectorAll('.section-content').forEach(seccion => {
+                seccion.classList.remove('active-section');
+            });
+            
+            const seccionDestino = document.getElementById(idSeccion);
+            if(seccionDestino) {
+                seccionDestino.classList.add('active-section');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
