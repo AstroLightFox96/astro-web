@@ -125,7 +125,9 @@ nav ul { display: flex; list-style: none; gap: 5px; }
     pointer-events: none;
 }
 
-/* SECCION DE DONACIONES ADICIONADA */
+/* ==========================================================
+   NUEVOS ESTILOS PARA LA SECCIÓN DE DONACIONES 
+   ========================================================== */
 .donaciones-container {
     padding: 20px 10px;
     display: flex;
