@@ -10,7 +10,7 @@ body {
   background-color: #0b0b0b; 
 }
 
-/* Fondo animado en movimiento continuo */
+/* Fondo animado responsive que cubre toda la pantalla */
 body::before {
   content: "";
   position: fixed;
@@ -20,21 +20,15 @@ body::before {
   height: 100%;
   z-index: -1;
   background-image: url('https://raw.githubusercontent.com/AstroLightFox96/astro-web/refs/heads/main/Imagen%20de%20fondo.png');
-  background-repeat: repeat;
-  background-size: 200% 200%; /* Amplía la imagen para dar espacio al desplazamiento */
-  animation: animarFondo 20s linear infinite alternate; /* Movimiento continuo idavueltas */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: animarFondo 25s linear infinite;
 }
 
 @keyframes animarFondo {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 100%;
-  }
+  0% { background-position: 50% 50%; }
+  100% { background-position: 100% 100%; }
 }
 
 /* =========================================
@@ -95,7 +89,7 @@ header {
   display: inline-block;
 }
 
-/* EFECTO NEÓN */
+/* --- EFECTO NEÓN Y BRILLO AL PASAR EL RATÓN --- */
 .nav-link:hover,
 .nav-link.active {
   color: #ff00ff; 
@@ -124,6 +118,44 @@ header {
   display: block;
 }
 
+/* Sección de inicio centrada */
 #inicio {
+  text-align: center;
+}
+
+/* =========================================
+   4. ADAPTACIÓN A REDES Y APARTADOS
+   ========================================= */
+#videos .contenedor-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+#dibujos .galeria-x {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+#tienda .productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#redes .lista-redes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#contacto .datos-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#donaciones {
   text-align: center;
 }
