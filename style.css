@@ -45,18 +45,19 @@ header {
   box-sizing: border-box;
 }
 
-/* Logo pequeño y centrado */
-.logo-box {
-  margin-bottom: 10px;
-  text-align: center;
-  width: 100%;
-}
-
+/* =========================================
+   TAMAÑO DEL LOGO
+   ========================================= */
 .main-logo {
-  max-width: 90px !important; /* Tamaño compacto arriba */
+  max-width: 60px !important; /* Si lo quieres aún más pequeño, prueba con 50px o 45px */
   height: auto !important;
   display: block !important;
   margin: 0 auto !important;
+}
+
+.logo-box {
+  margin-bottom: 5px !important;
+  text-align: center !important;
 }
 
 /* Menú forzado a FILA HORIZONTAL */
