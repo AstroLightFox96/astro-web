@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS GENERALES Y FONDO ANIMADO RESPONSIVE
+   1. ESTILOS GENERALES Y FONDO ANIMADO
    ========================================= */
 body {
   margin: 0;
@@ -10,7 +10,7 @@ body {
   background-color: #0b0b0b; 
 }
 
-/* Pseudo-elemento para el fondo animado y adaptable */
+/* Fondo animado responsive que cubre toda la pantalla */
 body::before {
   content: "";
   position: fixed;
@@ -32,29 +32,39 @@ body::before {
 }
 
 /* =========================================
-   CABECERA (LOGO CENTRADO Y MENÚ ABAJO)
+   2. CABECERA: LOGO EN EL CENTRO Y MENÚ ABAJO
    ========================================= */
-.cabecera-contenedor {
-  background-color: rgba(26, 26, 26, 0.9); /* Fondo semitransparente para que luzca bien */
-  padding: 20px;
+header {
+  background-color: rgba(26, 26, 26, 0.95);
+  padding: 25px 20px;
   border-bottom: 2px solid #333;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra horizontalmente el logo y el menú */
+  align-items: center;
   justify-content: center;
 }
 
-/* Estilos para asegurar que el logo esté arriba y centrado */
-.cabecera-contenedor .logo, 
-.cabecera-contenedor img {
-  display: block;
-  margin: 0 auto 15px auto; /* Centrado y separación con el menú */
-  max-width: 150px; /* Ajusta el tamaño de tu logo si es necesario */
-  height: auto;
+/* Caja del Logo */
+.logo-box {
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-/* Contenedor del Menú (pestañas abajo del logo) */
-.menu-navegacion {
+.main-logo {
+  max-width: 160px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Menú de Navegación */
+.main-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -64,8 +74,8 @@ body::before {
   list-style: none;
 }
 
-/* Estilos de las pestañas */
-.menu-navegacion a {
+/* Pestañas / Enlaces */
+.nav-link {
   color: #a0a0a0;
   text-decoration: none;
   padding: 10px 20px;
@@ -76,10 +86,12 @@ body::before {
   transition: all 0.3s ease;
   background-color: transparent;
   border: 2px solid transparent;
+  display: inline-block;
 }
 
-/* --- Efecto NEÓN Y BRILLO al pasar el ratón (Hover) --- */
-.menu-navegacion a:hover {
+/* --- EFECTO NEÓN Y BRILLO AL PASAR EL RATÓN --- */
+.nav-link:hover,
+.nav-link.active {
   color: #ff00ff; 
   text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
   border-color: #ff00ff;
@@ -87,8 +99,12 @@ body::before {
 }
 
 /* =========================================
-   SECCIONES Y CONTENIDO
+   3. ESTRUCTURA DE CONTENIDO Y SECCIONES
    ========================================= */
+.main-content-wrapper {
+  padding: 20px;
+}
+
 .seccion {
   display: none;
   padding: 30px 20px;
@@ -102,7 +118,44 @@ body::before {
   display: block;
 }
 
-/* Estilo específico para la sección de inicio */
+/* Sección de inicio centrada */
 #inicio {
+  text-align: center;
+}
+
+/* =========================================
+   4. ADAPTACIÓN A REDES Y APARTADOS
+   ========================================= */
+#videos .contenedor-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+#dibujos .galeria-x {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+#tienda .productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#redes .lista-redes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#contacto .datos-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#donaciones {
   text-align: center;
 }
