@@ -7,139 +7,102 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  /* Fondo base oscuro por si la imagen tarda en cargar */
   background-color: #0b0b0b; 
 }
 
 /* Pseudo-elemento para el fondo animado y adaptable */
 body::before {
   content: "";
-  position: fixed; /* Mantiene el fondo fijo al hacer scroll */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Lo coloca detrás de todo el contenido */
-  
-  /* Enlace a la imagen en formato RAW corregido */
+  z-index: -1;
   background-image: url('https://raw.githubusercontent.com/AstroLightFox96/astro-web/refs/heads/main/Imagen%20de%20fondo.png');
-  
-  /* Configuración para que el fondo sea responsive (se adapte al dispositivo) */
   background-repeat: no-repeat;
-  background-position: center; /* Centra la imagen */
-  background-size: cover; /* Escala la imagen para cubrir todo el contenedor sin deformarse */
-  
-  /* Mantiene la animación fluida */
+  background-position: center;
+  background-size: cover;
   animation: animarFondo 25s linear infinite;
 }
 
-/* Animación del fondo (movimiento suave) */
 @keyframes animarFondo {
   0% { background-position: 50% 50%; }
-  100% { background-position: 100% 100%; } /* Ajusta esto si prefieres otro tipo de movimiento */
+  100% { background-position: 100% 100%; }
 }
 
 /* =========================================
-   CABECERA (LOGO CENTRADO Y MENÚ NEÓN)
+   CABECERA (LOGO CENTRADO Y MENÚ ABAJO)
    ========================================= */
 .cabecera-contenedor {
-  /* Fondo oscuro/gris tenue para la sección superior */
-  background-color: #1a1a1a; 
-  padding: 25px;
-  border-bottom: 2px solid #333; /* Línea divisoria tenue */
-  text-align: center; /* Centra el logo y el menú */
+  background-color: rgba(26, 26, 26, 0.9); /* Fondo semitransparente para que luzca bien */
+  padding: 20px;
+  border-bottom: 2px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente el logo y el menú */
+  justify-content: center;
 }
 
-/* Estilos para el contenedor del Menú (pestañas) */
+/* Estilos para asegurar que el logo esté arriba y centrado */
+.cabecera-contenedor .logo, 
+.cabecera-contenedor img {
+  display: block;
+  margin: 0 auto 15px auto; /* Centrado y separación con el menú */
+  max-width: 150px; /* Ajusta el tamaño de tu logo si es necesario */
+  height: auto;
+}
+
+/* Contenedor del Menú (pestañas abajo del logo) */
 .menu-navegacion {
-  display: flex; /* Alinea los elementos en fila */
-  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea en pantallas pequeñas */
-  gap: 15px; /* Espaciado entre pestañas */
-  justify-content: center; /* Centra horizontalmente las pestañas */
-  padding: 10px;
-  margin-top: 20px; /* Espacio entre el logo y el menú */
-  list-style: none; /* Quita los puntos de la lista */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-/* Estilos para los enlaces (pestañas) del Menú */
+/* Estilos de las pestañas */
 .menu-navegacion a {
-  color: #a0a0a0; /* Color de texto base tenue */
-  text-decoration: none; /* Quita el subrayado */
+  color: #a0a0a0;
+  text-decoration: none;
   padding: 10px 20px;
   border-radius: 8px;
-  font-family: 'Montserrat', sans-serif; /* Tipografía moderna (asegúrate de incluirla en tu HTML si es externa) */
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all 0.3s ease; /* Transición suave para todos los efectos */
+  transition: all 0.3s ease;
   background-color: transparent;
-  border: 2px solid transparent; /* Borde invisible por defecto */
+  border: 2px solid transparent;
 }
 
 /* --- Efecto NEÓN Y BRILLO al pasar el ratón (Hover) --- */
 .menu-navegacion a:hover {
-  /* El color neón exacto de tu captura (un rosa/púrpura vibrante) */
   color: #ff00ff; 
-  /* Efecto de resplandor (sombra de texto) */
   text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-  /* Efecto de borde y resplandor de caja */
   border-color: #ff00ff;
   box-shadow: 0 0 15px #ff00ff;
 }
 
 /* =========================================
-   ESTRUCTURA Y SEPARACIÓN DE SECCIONES (CONTENIDO)
+   SECCIONES Y CONTENIDO
    ========================================= */
 .seccion {
-  display: none; /* Oculta las secciones por defecto */
-  padding: 20px;
+  display: none;
+  padding: 30px 20px;
   width: 100%;
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-  color: #fff; /* Color de texto base para el contenido */
+  box-sizing: border-box;
+  color: #fff;
 }
 
-/* Muestra la sección activa (por clase o target) */
 .seccion.activa,
 .seccion:target {
   display: block;
 }
 
-/* =========================================
-   ESTILOS ESPECÍFICOS DE APARTADOS (Ejemplos)
-   ========================================= */
+/* Estilo específico para la sección de inicio */
 #inicio {
-  text-align: center;
-}
-
-#videos .contenedor-videos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Rejilla responsive para videos */
-  gap: 20px;
-}
-
-#dibujos .galeria-x {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Rejilla responsive para dibujos */
-  gap: 15px;
-}
-
-#tienda .productos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-#redes .lista-redes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#contacto .datos-contacto {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-#donaciones {
   text-align: center;
 }
