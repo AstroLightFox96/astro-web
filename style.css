@@ -1,208 +1,152 @@
-/* CONFIGURACIÓN GENERAL - CON FONDO ESPACIAL */
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-body { 
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('https://github.com/AstroLightFox96/astro-web/blob/main/Imagen%20de%20fondo.png?raw=true');
-    background-attachment: fixed;
+body {
+    background-image: url('Imagen%20de%20fondo.png');
+    background-repeat: repeat;
     background-size: cover;
-    background-position: center;
-    background-color: #000; 
-    color: white; 
-    font-family: 'Segoe UI', sans-serif; 
-    overflow-x: hidden; 
-    
-    /* Activa flexbox en toda la estructura del body */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    animation: moverFondo 60s linear infinite;
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
 
-/* HEADER - AJUSTADO PARA LOGO MEDIANO */
+@keyframes moverFondo {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1000px 1000px;
+    }
+}
+
 header {
-    height: 180px; 
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200');
-    background-size: cover; 
-    background-position: center;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center;
-    border-bottom: 3px solid #8a2be2; 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000;
-    padding: 10px 0;
-}
-
-/* CAJA DEL LOGO */
-.logo-box { 
-    width: auto; 
-    height: 90px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin-bottom: 15px; 
-    background: transparent; 
-}
-
-.main-logo {
-    height: 100%;
-    width: auto;
-    filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.8)); 
-    transition: transform 0.3s ease;
-}
-
-.main-logo:hover {
-    transform: scale(1.1);
-}
-
-/* NAVEGACIÓN */
-nav ul { display: flex; list-style: none; gap: 5px; }
-.nav-link { 
-    color: white; 
-    text-decoration: none; 
-    font-size: 0.8rem; 
-    font-weight: bold; 
-    padding: 6px 8px; 
-    border-radius: 5px; 
-    transition: 0.3s; 
-    text-transform: uppercase; 
-}
-.nav-link.active { background-color: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
-.nav-link:hover:not(.active) { background: rgba(138, 43, 226, 0.3); }
-
-/* SECCIONES */
-.page-section { min-height: auto; padding: 40px 20px; }
-.small-padding { padding: 30px 20px; }
-.no-padding-top { padding-top: 10px; }
-.bienvenida { font-size: 1.8rem; font-weight: bold; text-shadow: 0 0 10px #8a2be2; text-align: center; }
-.section-title { color: #8a2be2; margin-bottom: 20px; border-left: 4px solid white; padding-left: 12px; font-size: 1.2rem; text-transform: uppercase; }
-
-/* CARRUSEL VIDEOS */
-.video-carousel-container { width: 100%; overflow-x: auto; padding: 10px 0; }
-.video-carousel-container::-webkit-scrollbar { height: 6px; }
-.video-carousel-container::-webkit-scrollbar-thumb { background: #8a2be2; border-radius: 10px; }
-.video-chain { display: flex; gap: 15px; padding-bottom: 10px; }
-.video-card { min-width: 280px; height: 200px; background: #000; border: 2px solid #8a2be2; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; transition: 0.3s; }
-.video-card iframe { width: 100%; height: 75%; border-bottom: 1px solid #8a2be2; }
-.video-card span { color: white; padding: 5px; font-size: 0.8rem; text-align: center; background: #111; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
-.view-more-card { min-width: 140px; height: 200px; background: rgba(138, 43, 226, 0.1); border: 2px dashed #8a2be2; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; gap: 10px; }
-.arrow-circle { width: 45px; height: 45px; border-radius: 50%; background: #8a2be2; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-
-/* TERMINAL PROYECTOS */
-.project-terminal { background: #0a0a0a; border: 1px solid #8a2be2; border-radius: 10px; overflow: hidden; font-family: 'Consolas', monospace; }
-.terminal-header { background: #1a1a1a; padding: 8px 15px; display: flex; align-items: center; gap: 8px; }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
-.terminal-title { font-size: 0.7rem; color: #888; margin-left: 10px; }
-.terminal-body { padding: 20px; color: #00ff00; }
-.status-line { font-size: 0.7rem; margin-bottom: 15px; animation: blink 1.5s infinite; }
-.project-msg { margin-bottom: 8px; font-size: 0.9rem; color: #eee; }
-
-/* ROBLOX Y OTROS */
-.roblox-info { padding: 0 10px; display: flex; flex-direction: column; gap: 15px; }
-.roblox-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background-color: #111; color: white; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 10px; border: 2px solid #8a2be2; max-width: 320px; transition: 0.3s; font-size: 0.9rem; }
-.roblox-btn:hover { background-color: #8a2be2; box-shadow: 0 0 20px #8a2be2; transform: translateY(-3px); }
-.white-icon { filter: invert(1); width: 20px; }
-.card-large { width: 100%; padding: 20px; border: 1px solid #333; text-align: center; border-radius: 8px; background: #050505; }
-
-/* SOCIAL HUB - ANCLADO FIJO AL FONDO */
-.social-hub { 
-    background: #0a0a0a; 
-    padding: 40px 20px; 
-    text-align: center; 
-    border-top: 3px solid #8a2be2; 
-    margin-top: auto; /* Empuja el hub de manera automática hasta abajo */
-    width: 100%;
-}
-.social-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-.social-card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 15px; width: 110px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.4s; }
-.social-card img { width: 35px; height: 35px; }
-.social-card span { color: #bbb; font-size: 0.8rem; font-weight: bold; }
-
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-/* --- NUEVA CAPA DE FONDO --- */
-#fondo-espacial {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; 
-    opacity: 0.8; 
-    pointer-events: none;
-}
-
-/* SECCION DE DONACIONES */
-.donaciones-container {
-    padding: 20px 10px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-box .main-logo {
+    height: 60px;
+    width: auto;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #00d2ff;
+}
+
+.main-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-section {
+    display: none;
+}
+
+.page-section.active-section {
+    display: block;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.donaciones-text {
-    color: #bbb;
-    font-size: 0.95rem;
-    max-width: 600px;
-    line-height: 1.5;
+.iframe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-.donar-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background-color: #111;
-    color: white;
+.video-card iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.view-more-card {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #00d2ff;
     text-decoration: none;
     font-weight: bold;
-    padding: 14px 28px;
-    border-radius: 10px;
-    border: 2px solid #8a2be2;
-    max-width: 320px;
-    width: 100%;
-    transition: 0.3s;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
 }
 
-.donar-btn:hover {
-    background-color: #8a2be2;
-    box-shadow: 0 0 20px #8a2be2;
-    transform: translateY(-3px);
+.projects-container .terminal-body {
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: monospace;
 }
 
-.heart-icon {
-    font-size: 1.2rem;
+.status-terminal {
+    color: #00ff00;
+    margin-bottom: 10px;
 }
 
-/* ==========================================================
-   SISTEMA DE OCULTAR/MOSTRAR SECCIONES CON PIE DE PÁGINA FIJO
-   ========================================================== */
-.main-content-wrapper {
-    flex: 1; /* Esto obliga a este bloque central a llenar el espacio sobrante */
+.roblox-container,
+.donations-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-card,
+.donation-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.social-hub {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.social-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente cuando es corto */
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
-.section-content {
-    display: none; 
-    animation: fadeIn 0.4s ease-in-out; 
-}
-
-.section-content.active-section {
-    display: block; 
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.social-card img {
+    width: 24px;
+    height: 24px;
 }
