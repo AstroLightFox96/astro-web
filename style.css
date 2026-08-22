@@ -53,7 +53,7 @@ header {
 }
 
 .main-logo {
-  max-width: 55px !important; /* Ajusta este valor si lo quieres más chico o grande */
+  max-width: 15px !important; /* Ajusta este valor si lo quieres más chico o grande */
   height: auto !important;
   display: block !important;
   margin: 0 auto !important;
