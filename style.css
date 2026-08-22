@@ -1,5 +1,5 @@
 /* =========================================
-   1. ESTILOS GENERALES Y FONDO ANIMADO
+   1. FONDO ANIMADO RESPONSIVE
    ========================================= */
 body {
   margin: 0;
@@ -10,7 +10,6 @@ body {
   background-color: #0b0b0b; 
 }
 
-/* Fondo adaptable y animado */
 body::before {
   content: "";
   position: fixed;
@@ -32,66 +31,73 @@ body::before {
 }
 
 /* =========================================
-   2. CABECERA COMPACTA (LOGO Y MENÚ HORIZONTAL)
+   2. CABECERA Y MENÚ HORIZONTAL
    ========================================= */
 header {
   background-color: rgba(26, 26, 26, 0.95);
-  padding: 10px 15px; /* Altura delgada y elegante */
+  padding: 12px 20px;
   border-bottom: 2px solid #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Contenedor del Logo (Chantillí / Pequeño arriba) */
+/* Logo pequeño y centrado */
 .logo-box {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   text-align: center;
+  width: 100%;
 }
 
 .main-logo {
-  max-width: 85px; /* Tamaño reducido para no ser gigante */
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  max-width: 90px !important; /* Tamaño compacto arriba */
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
-/* Menú de Navegación Horizontal */
+/* Menú forzado a FILA HORIZONTAL */
 .main-nav {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .main-nav ul {
-  display: flex;
-  flex-direction: row; /* Forzar orientación plana / horizontal */
-  flex-wrap: wrap; 
-  gap: 12px;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  display: flex !important;
+  flex-direction: row !important; /* Estilo plano horizontal */
+  flex-wrap: nowrap !important; /* Evita que caigan en columnas */
+  gap: 15px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
 }
 
-/* Botones del menú */
+.main-nav li {
+  display: inline-block !important;
+}
+
+/* Pestañas Neón */
 .nav-link {
   color: #a0a0a0;
   text-decoration: none;
   padding: 6px 14px;
   border-radius: 6px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   letter-spacing: 1px;
   transition: all 0.3s ease;
   background-color: transparent;
   border: 1px solid transparent;
-  display: inline-block;
+  white-space: nowrap;
 }
 
-/* Efecto neón al pasar el cursor o pestaña activa */
 .nav-link:hover,
 .nav-link.active {
   color: #ff00ff; 
@@ -101,13 +107,12 @@ header {
 }
 
 /* =========================================
-   3. VISIBILIDAD DE SECCIONES INDEPENDIENTES
+   3. SECCIONES INDEPENDIENTES
    ========================================= */
 .main-content-wrapper {
   padding: 20px;
 }
 
-/* Oculta todas las secciones por defecto */
 .seccion {
   display: none;
   padding: 20px;
@@ -116,7 +121,6 @@ header {
   color: #fff;
 }
 
-/* Muestra solo la sección activa seleccionada */
 .seccion.activa,
 .seccion:target {
   display: block;
