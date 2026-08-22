@@ -1,123 +1,145 @@
 /* =========================================
-   FONDO ANIMADO CON IMAGEN
+   ESTILOS GENERALES Y FONDO ANIMADO RESPONSIVE
    ========================================= */
-
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  /* Imagen de fondo proporcionada */
-  background-image: url('https://raw.githubusercontent.com/AstroLightFox96/astro-web/refs/heads/main/Imagen%20de%20fondo.png');
-  background-repeat: repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  /* Animación de movimiento del fondo */
-  animation: animarFondo 30s linear infinite;
+  position: relative;
+  overflow-x: hidden;
+  /* Fondo base oscuro por si la imagen tarda en cargar */
+  background-color: #0b0b0b; 
 }
 
-/* Keyframes para mover el fondo suavemente */
+/* Pseudo-elemento para el fondo animado y adaptable */
+body::before {
+  content: "";
+  position: fixed; /* Mantiene el fondo fijo al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Lo coloca detrás de todo el contenido */
+  
+  /* Enlace a la imagen en formato RAW corregido */
+  background-image: url('https://raw.githubusercontent.com/AstroLightFox96/astro-web/refs/heads/main/Imagen%20de%20fondo.png');
+  
+  /* Configuración para que el fondo sea responsive (se adapte al dispositivo) */
+  background-repeat: no-repeat;
+  background-position: center; /* Centra la imagen */
+  background-size: cover; /* Escala la imagen para cubrir todo el contenedor sin deformarse */
+  
+  /* Mantiene la animación fluida */
+  animation: animarFondo 25s linear infinite;
+}
+
+/* Animación del fondo (movimiento suave) */
 @keyframes animarFondo {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0 0;
-  }
+  0% { background-position: 50% 50%; }
+  100% { background-position: 100% 100%; } /* Ajusta esto si prefieres otro tipo de movimiento */
 }
 
 /* =========================================
-   ESTRUCTURA Y SEPARACIÓN DE SECCIONES
+   CABECERA (LOGO CENTRADO Y MENÚ NEÓN)
    ========================================= */
-
-/* Oculta todas las secciones por defecto */
-.seccion {
-  display: none;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
+.cabecera-contenedor {
+  /* Fondo oscuro/gris tenue para la sección superior */
+  background-color: #1a1a1a; 
+  padding: 25px;
+  border-bottom: 2px solid #333; /* Línea divisoria tenue */
+  text-align: center; /* Centra el logo y el menú */
 }
 
-/* Sección activa que se muestra */
+/* Estilos para el contenedor del Menú (pestañas) */
+.menu-navegacion {
+  display: flex; /* Alinea los elementos en fila */
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea en pantallas pequeñas */
+  gap: 15px; /* Espaciado entre pestañas */
+  justify-content: center; /* Centra horizontalmente las pestañas */
+  padding: 10px;
+  margin-top: 20px; /* Espacio entre el logo y el menú */
+  list-style: none; /* Quita los puntos de la lista */
+}
+
+/* Estilos para los enlaces (pestañas) del Menú */
+.menu-navegacion a {
+  color: #a0a0a0; /* Color de texto base tenue */
+  text-decoration: none; /* Quita el subrayado */
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif; /* Tipografía moderna (asegúrate de incluirla en tu HTML si es externa) */
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease; /* Transición suave para todos los efectos */
+  background-color: transparent;
+  border: 2px solid transparent; /* Borde invisible por defecto */
+}
+
+/* --- Efecto NEÓN Y BRILLO al pasar el ratón (Hover) --- */
+.menu-navegacion a:hover {
+  /* El color neón exacto de tu captura (un rosa/púrpura vibrante) */
+  color: #ff00ff; 
+  /* Efecto de resplandor (sombra de texto) */
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+  /* Efecto de borde y resplandor de caja */
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+/* =========================================
+   ESTRUCTURA Y SEPARACIÓN DE SECCIONES (CONTENIDO)
+   ========================================= */
+.seccion {
+  display: none; /* Oculta las secciones por defecto */
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  color: #fff; /* Color de texto base para el contenido */
+}
+
+/* Muestra la sección activa (por clase o target) */
 .seccion.activa,
 .seccion:target {
   display: block;
 }
 
 /* =========================================
-   ESTILOS DE MENÚ / NAVEGACIÓN
+   ESTILOS ESPECÍFICOS DE APARTADOS (Ejemplos)
    ========================================= */
-
-.menu-navegacion {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.menu-navegacion a {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.menu-navegacion a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* =========================================
-   ORGANIZACIÓN ESPECÍFICA POR APARTADO
-   ========================================= */
-
-/* 1. Inicio */
 #inicio {
   text-align: center;
 }
 
-/* 2. Videos (YouTube y TikTok) */
 #videos .contenedor-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Rejilla responsive para videos */
   gap: 20px;
 }
 
-/* 3. Dibujos (X) */
 #dibujos .galeria-x {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Rejilla responsive para dibujos */
   gap: 15px;
 }
 
-/* 4. Tienda */
 #tienda .productos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-/* 5. Mis Redes Sociales */
 #redes .lista-redes {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* 6. Contáctame (Correo y Discord) */
 #contacto .datos-contacto {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* 7. Donaciones */
 #donaciones {
   text-align: center;
 }
