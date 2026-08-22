@@ -1,5 +1,5 @@
 /* =========================================
-   1. FONDO ANIMADO RESPONSIVE
+   1. FONDO ANIMADO
    ========================================= */
 body {
   margin: 0;
@@ -7,7 +7,9 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background-color: #0b0b0b; 
+  background-color: #0b0b0b;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
 }
 
 body::before {
@@ -25,107 +27,349 @@ body::before {
 }
 
 @keyframes animarFondo {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 100%; }
 }
 
 /* =========================================
-   CABECERA Y MENÚ HORIZONTAL (SIN TOCAR EL FONDO)
+   2. CABECERA Y MENÚ
    ========================================= */
-header {
+header.cabecera-contenedor {
   background-color: rgba(26, 26, 26, 0.95);
-  padding: 8px 15px !important; /* Cabecera delgada */
-  border-bottom: 2px solid #333;
-  display: flex !important;
-  flex-direction: raw !important;
-  align-items: center !important;
-  justify-content: center !important;
+  padding: 14px 20px;
+  border-bottom: 2px solid #7b2cbf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  z-index: 100;
 }
 
-/* Logo pequeño en el centro */
-.logo-box {
-  margin-bottom: 6px !important;
-  text-align: center !important;
+header.cabecera-contenedor .logo {
+  width: 75px;
+  max-width: 75px;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+header.cabecera-contenedor .menu-navegacion {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
   width: 100%;
 }
 
-.main-logo {
-  max-width: 15px !important; /* Ajusta este valor si lo quieres más chico o grande */
-  height: auto !important;
-  display: block !important;
-  margin: 0 auto !important;
+header.cabecera-contenedor .menu-navegacion li {
+  display: inline-block;
 }
 
-/* Menú forzado en una sola fila horizontal */
-.main-nav {
-  width: 100%;
-  display: flex !important;
-  justify-content: center !important;
-}
-
-.main-nav ul {
-  display: flex !important;
-  flex-direction: row !important; /* En línea recta */
-  flex-wrap: nowrap !important; /* Evita que caigan hacia abajo */
-  gap: 12px !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  list-style: none !important;
-}
-
-.main-nav li {
-  display: inline-block !important;
-}
-
-/* Estilo de los botones */
-.nav-link {
-  color: #a0a0a0;
+header.cabecera-contenedor .nav-link {
+  color: #ffffff;
   text-decoration: none;
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-family: 'Montserrat', sans-serif;
+  padding: 7px 16px;
+  border-radius: 20px;
   font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background-color: #7b2cbf;
+  border: none;
+  white-space: nowrap;
   transition: all 0.3s ease;
-  background-color: transparent;
-  border: 1px solid transparent;
-  white-space: nowrap !important; /* Evita saltos de línea en el texto del botón */
+  box-shadow: 0 0 8px rgba(123, 44, 191, 0.45);
+  display: inline-block;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: #ff00ff; 
-  text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff;
-  border-color: #ff00ff;
-  box-shadow: 0 0 10px #ff00ff;
+header.cabecera-contenedor .nav-link:hover,
+header.cabecera-contenedor .nav-link.active {
+  background-color: #9b4dca;
+  color: #fff;
+  box-shadow: 0 0 16px rgba(155, 77, 202, 0.85);
+  transform: translateY(-1px);
 }
 
 /* =========================================
-   3. SECCIONES INDEPENDIENTES
+   3. CONTENIDO GENERAL
    ========================================= */
 .main-content-wrapper {
-  padding: 20px;
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.seccion {
+.section-content {
   display: none;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
-  color: #fff;
+  padding: 20px 0;
+  animation: fadeIn 0.4s ease;
 }
 
-.seccion.activa,
-.seccion:target {
+.section-content.active-section {
   display: block;
 }
 
-#inicio {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.main-title {
+  font-size: 2.4rem;
   text-align: center;
+  margin: 40px 0 15px;
+  text-shadow: 0 0 15px rgba(123, 44, 191, 0.6);
+}
+
+.subtitle {
+  text-align: center;
+  color: #bbb;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #e0b0ff;
+}
+
+/* =========================================
+   4. VÍDEOS
+   ========================================= */
+.iframe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.video-card {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.video-card iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.view-more-card {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 250px;
+  padding: 12px 25px;
+  background: #7b2cbf;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.view-more-card:hover {
+  background: #9b4dca;
+  box-shadow: 0 0 15px rgba(155, 77, 202, 0.7);
+}
+
+/* =========================================
+   5. PROYECTOS (TERMINAL)
+   ========================================= */
+.projects-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.terminal-body {
+  background: #111;
+  border: 1px solid #7b2cbf;
+  border-radius: 10px;
+  padding: 25px;
+  font-family: monospace;
+  box-shadow: 0 0 20px rgba(123, 44, 191, 0.3);
+}
+
+.status-terminal {
+  margin: 8px 0;
+  color: #00ff9d;
+}
+
+/* =========================================
+   6. ROBLOX, DONACIONES, TIENDA
+   ========================================= */
+.sub-title {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.roblox-container,
+.donations-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.donation-text {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.donation-button {
+  display: inline-block;
+  padding: 14px 35px;
+  background: #ff5e5b;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.donation-button:hover {
+  background: #ff7b78;
+  box-shadow: 0 0 15px rgba(255, 94, 91, 0.6);
+}
+
+.card-large {
+  background: rgba(30, 30, 30, 0.8);
+  border: 2px dashed #7b2cbf;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  color: #bbb;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   7. MIS REDES (Social Hub)
+   ========================================= */
+.social-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(20, 20, 20, 0.9);
+  padding: 20px 25px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: white;
+  min-width: 120px;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+}
+
+.social-card img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.social-card .white-icon {
+  filter: invert(1);
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(123, 44, 191, 0.5);
+  border-color: #7b2cbf;
+}
+
+/* =========================================
+   8. CONTÁCTAME
+   ========================================= */
+.contact-container {
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-text {
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.contact-btn {
+  display: inline-block;
+  width: 280px;
+  padding: 12px 20px;
+  background: #7b2cbf;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.contact-btn:hover {
+  background: #9b4dca;
+  box-shadow: 0 0 15px rgba(155, 77, 202, 0.7);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   9. RESPONSIVE
+   ========================================= */
+@media (max-width: 800px) {
+  header.cabecera-contenedor .logo {
+    width: 60px;
+    max-width: 60px;
+  }
+
+  header.cabecera-contenedor .menu-navegacion {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  header.cabecera-contenedor .nav-link {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
 }
