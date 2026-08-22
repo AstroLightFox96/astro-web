@@ -1,19 +1,17 @@
-/* CONFIGURACIÓN GENERAL - CON FONDO ESPACIAL ANIMADO */
+/* CONFIGURACIÓN GENERAL - CON FONDO ESPACIAL */
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
 body { 
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                 url('https://github.com/AstroLightFox96/astro-web/blob/main/Imagen%20de%20fondo.png?raw=true');
-    background-repeat: repeat;
-    background-size: auto;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     background-color: #000; 
     color: white; 
     font-family: 'Segoe UI', sans-serif; 
     overflow-x: hidden; 
     
-    /* Animación de desplazamiento suave */
-    animation: moverFondo 80s linear infinite;
-
     /* Activa flexbox en toda la estructura del body */
     display: flex;
     flex-direction: column;
@@ -207,14 +205,4 @@ nav ul { display: flex; list-style: none; gap: 5px; }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* REGLA DE ANIMACIÓN DE DESPLAZAMIENTO */
-@keyframes moverFondo {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 1000px 1000px;
-    }
 }
