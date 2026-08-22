@@ -31,11 +31,11 @@ body::before {
 }
 
 /* =========================================
-   2. CABECERA Y MENÚ HORIZONTAL
+   CABECERA Y MENÚ HORIZONTAL (SIN TOCAR EL FONDO)
    ========================================= */
 header {
   background-color: rgba(26, 26, 26, 0.95);
-  padding: 12px 20px;
+  padding: 8px 15px !important; /* Cabecera delgada */
   border-bottom: 2px solid #333;
   display: flex !important;
   flex-direction: column !important;
@@ -45,22 +45,21 @@ header {
   box-sizing: border-box;
 }
 
-/* =========================================
-   TAMAÑO DEL LOGO
-   ========================================= */
+/* Logo pequeño en el centro */
+.logo-box {
+  margin-bottom: 6px !important;
+  text-align: center !important;
+  width: 100%;
+}
+
 .main-logo {
-  max-width: 60px !important; /* Si lo quieres aún más pequeño, prueba con 50px o 45px */
+  max-width: 55px !important; /* Ajusta este valor si lo quieres más chico o grande */
   height: auto !important;
   display: block !important;
   margin: 0 auto !important;
 }
 
-.logo-box {
-  margin-bottom: 5px !important;
-  text-align: center !important;
-}
-
-/* Menú forzado a FILA HORIZONTAL */
+/* Menú forzado en una sola fila horizontal */
 .main-nav {
   width: 100%;
   display: flex !important;
@@ -69,9 +68,9 @@ header {
 
 .main-nav ul {
   display: flex !important;
-  flex-direction: row !important; /* Estilo plano horizontal */
-  flex-wrap: nowrap !important; /* Evita que caigan en columnas */
-  gap: 15px !important;
+  flex-direction: row !important; /* En línea recta */
+  flex-wrap: nowrap !important; /* Evita que caigan hacia abajo */
+  gap: 12px !important;
   justify-content: center !important;
   align-items: center !important;
   padding: 0 !important;
@@ -83,11 +82,11 @@ header {
   display: inline-block !important;
 }
 
-/* Pestañas Neón */
+/* Estilo de los botones */
 .nav-link {
   color: #a0a0a0;
   text-decoration: none;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 6px;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
@@ -96,7 +95,7 @@ header {
   transition: all 0.3s ease;
   background-color: transparent;
   border: 1px solid transparent;
-  white-space: nowrap;
+  white-space: nowrap !important; /* Evita saltos de línea en el texto del botón */
 }
 
 .nav-link:hover,
